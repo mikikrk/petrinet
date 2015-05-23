@@ -24,15 +24,8 @@ function receivedText(e) {
     lines = e.target.result;
     var newArr = JSON.parse(lines);
     graph.fromJSON(newArr);
-    addLinksMarkers();
     clean();
-}
-
-function addLinksMarkers(){
-    var links = graph.getLinks();
-    for (var linkId in links){
-        links[linkId].attr('.marker-target', { d: 'M 10 0 L 0 5 L 10 10 z' })
-    }
+    resetCRUDCounters();
 }
 
 function clean(){

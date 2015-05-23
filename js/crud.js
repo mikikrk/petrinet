@@ -6,6 +6,11 @@ $(document).ready(function(){
     var placesCounter = 1;
     var transitionsCounter = 1;
 
+    window.resetCRUDCounters = new function(){
+        placesCounter = 1;
+        transitionsCounter = 1;
+    }
+
     $('#add-place').click(function(){
         var place = new pn.Place({position: {x: 10, y: 30}, attrs: {'.label': {text: 'Place ' + placesCounter++}}, tokens: 0});
         graph.addCell([place]);

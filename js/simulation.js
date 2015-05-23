@@ -33,13 +33,16 @@ $(document).ready(function(){
         $('#pause-simulation').removeAttr('disabled');
         resumeSimulation();
     });
-});
+
+	$('#matrix-build').click(function(){
+        buildMatrixRepresentation();
+    });
+	
     var simulationStopped = true;
     var wait4choose = false;
 
     function startSimulation(){
         simulationStopped = false;
-		buildMatrixRepresentation();
         simulate();
     }
 
@@ -131,7 +134,7 @@ $(document).ready(function(){
         return true;
     }
 
-    function getAllTransitions(){
+    window.getAllTransitions = function(){
         var elements = graph.getElements();
         var transitions = new Object();
         for (var element in elements){
@@ -169,7 +172,7 @@ $(document).ready(function(){
         return fireable;
     }
 	
-	    function getAllPlaces(){
+	window.getAllPlaces = function(){
         var elements = graph.getElements();
         var places = new Object();
         for (var element in elements){
@@ -306,3 +309,4 @@ $(document).ready(function(){
             resimulateIfNecessary();
         }, 100);
     }
+});
