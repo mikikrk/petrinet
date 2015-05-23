@@ -17,28 +17,30 @@
 <body>
 
     <section id="creator">
-        <div class="paper" id="paper-net">
+        <div class="paper pull-left col-md-9 bordered" id="paper-net">
         </div>
-        <div id="paper-creator"></div>
-            <button class="btn btn-default btn-sm" id="add-place">Add place</button>
-            <button class="btn btn-default btn-sm" id="add-transition">Add transition</button>
-            <button class="btn btn-default btn-sm" id="add-link">Add link</button>
-        </div>
-        <div id="persistance">
-            <a class="btn btn-default btn-sm" id="save" href="" download="graph.json">Save</a>
-            <span class="btn btn-default btn-sm btn-file">
-                Load <input id="load" type="file">
-            </span>
-        </div>
-        <div id="simulation">
-            <h3>Simulation</h3>
+        <div class="col-md-2 bordered" id="simulation">
+            <h4>Simulation</h4>
             <button class="btn btn-default btn-sm" id="start-simulation">Start</button>
             <button class="btn btn-default btn-sm" id="stop-simulation" disabled="disabled">Stop</button>
             <button class="btn btn-default btn-sm" id="pause-simulation" disabled="disabled">Pause</button>
             <button class="btn btn-default btn-sm" id="resume-simulation" disabled="disabled">Resume</button>
         </div>
-        <div id="elements-options">
+        <div class="col-md-2 bordered" id="elements-options">
+            <h4>Options</h4>
         </div>
+        <div class="nav pull-left col-md-8" id="paper-creator">
+            <button class="btn btn-default btn-sm" id="add-place">Add place</button>
+            <button class="btn btn-default btn-sm" id="add-transition">Add transition</button>
+            <button class="btn btn-default btn-sm" id="add-link">Add link</button>
+        </div>
+        <div class="nav pull-left col-md-8" id="persistance">
+            <a class="btn btn-default btn-sm" id="save" href="" download="graph.json">Save</a>
+            <span class="btn btn-default btn-sm btn-file">
+                Load <input id="load" type="file">
+            </span>
+        </div>
+
     </section>
 
 
