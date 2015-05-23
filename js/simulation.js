@@ -33,12 +33,13 @@ $(document).ready(function(){
         $('#pause-simulation').removeAttr('disabled');
         resumeSimulation();
     });
-
+});
     var simulationStopped = true;
     var wait4choose = false;
 
     function startSimulation(){
         simulationStopped = false;
+		buildMatrixRepresentation();
         simulate();
     }
 
@@ -167,6 +168,17 @@ $(document).ready(function(){
         });
         return fireable;
     }
+	
+	    function getAllPlaces(){
+        var elements = graph.getElements();
+        var places = new Object();
+        for (var element in elements){
+            if (elements[element] instanceof pn.Place){
+                places[element] = elements[element];
+            }
+        }
+        return places;
+    }
 
     function createLinkPlaceMap(link, type){
         return {link: link, place: graph.getCell(link.get(type).id)};
@@ -294,4 +306,3 @@ $(document).ready(function(){
             resimulateIfNecessary();
         }, 100);
     }
-});
