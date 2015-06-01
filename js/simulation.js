@@ -33,10 +33,6 @@ $(document).ready(function(){
         $('#pause-simulation').removeAttr('disabled');
         resumeSimulation();
     });
-
-	$('#matrix-build').click(function(){
-        buildMatrixRepresentation();
-    });
 	
     var simulationStopped = true;
     var wait4choose = false;
@@ -306,6 +302,7 @@ $(document).ready(function(){
 
     function resimulateAfterMagneting(){
         setTimeout(function(){
+            updateParameters();
             resimulateIfNecessary();
         }, 100);
     }

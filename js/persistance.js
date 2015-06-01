@@ -24,8 +24,8 @@ function receivedText(e) {
     lines = e.target.result;
     var newArr = JSON.parse(lines);
     graph.fromJSON(newArr);
+    updateParameters();
     clean();
-    resetCRUDCounters();
 }
 
 function clean(){

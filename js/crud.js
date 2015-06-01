@@ -27,3 +27,7 @@ $(document).ready(function(){
     });
 
 });
+
+window.updateParameters = function(){
+    buildMatrixRepresentation();
+}

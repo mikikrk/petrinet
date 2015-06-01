@@ -66,4 +66,23 @@
 
 		}
 	}
+
+	 displayMatrix($('#matrix #dm'), matrixDm);
+	 displayMatrix($('#matrix #dp'), matrixDp);
+	 displayMatrix($('#matrix #d'), matrixD);
+
  }
+
+function displayMatrix($div, matrix){
+	var $table = $div.children('table');
+	$table.empty();
+	for (var i = 0; i < matrix.length; i++){
+		var $tr = $("<tr>");
+		for (var j = 0; j < matrix[i].length; j++){
+			var $td = $("<td>");
+			$td.append(matrix[i][j]);
+			$tr.append($td);
+		}
+		$table.append($tr);
+	}
+}

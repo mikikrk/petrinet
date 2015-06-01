@@ -33,13 +33,26 @@
             <button class="btn btn-default btn-sm" id="add-place">Add place</button>
             <button class="btn btn-default btn-sm" id="add-transition">Add transition</button>
             <button class="btn btn-default btn-sm" id="add-link">Add link</button>
-			<button class="btn btn-default btn-sm" id="matrix-build">Matrix representation</button>
         </div>
         <div class="nav pull-left col-md-8" id="persistance">
             <a class="btn btn-default btn-sm" id="save" href="" download="graph.json">Save</a>
             <span class="btn btn-default btn-sm btn-file">
                 Load <input id="load" type="file">
             </span>
+        </div>
+        <div class="nav pull-left col-md-12" id="matrix">
+            <div class="nav pull-left col-md-3" id="dp">
+                <h3>N+</h3>
+                <table class="matrix"></table>
+            </div>
+            <div class="nav pull-left col-md-3" id="dm">
+                <h3>N-</h3>
+                <table class="matrix"></table>
+            </div>
+            <div class="nav pull-left col-md-3" id="d">
+                <h3>N</h3>
+                <table class="matrix"></table>
+            </div>
         </div>
 
     </section>
