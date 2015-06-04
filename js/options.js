@@ -5,18 +5,21 @@ $(document).ready(function() {
     var pointedElement = undefined;
 
     paper.on('cell:pointerdown', function (cellView, evt, x, y) {
-        pointedElement = cellView.model;
-        if (cellView.model instanceof joint.shapes.pn.Place) {
-            preparePlaceOptions(cellView);
-        } else if (cellView.model instanceof joint.shapes.pn.Transition) {
-            prepareTransitionOptions(cellView);
-        } else if (cellView.model instanceof joint.shapes.pn.Link) {
-            prepareLinkOptions(cellView);
-        }
+        displayOptions(cellView.model);
     });
 
-    function preparePlaceOptions(placeView) {
-        var place = placeView.model;
+    window.displayOptions = function(cell){
+        pointedElement = cell;
+        if (pointedElement instanceof joint.shapes.pn.Place) {
+            preparePlaceOptions(pointedElement);
+        } else if (pointedElement instanceof joint.shapes.pn.Transition) {
+            prepareTransitionOptions(pointedElement);
+        } else if (pointedElement instanceof joint.shapes.pn.Link) {
+            prepareLinkOptions(pointedElement);
+        }
+    }
+
+    function preparePlaceOptions(place) {
         var labelPath = ".label/text";
         var tokensPath = "tokens";
         var label = place.attr(labelPath);
@@ -31,8 +34,7 @@ $(document).ready(function() {
         setButtonActions(place);
     }
 
-    function prepareTransitionOptions(transitionView) {
-        var transition = transitionView.model;
+    function prepareTransitionOptions(transition) {
         var labelPath = ".label/text";
         var priorityPath = ".priority-nb/text";
         var label = transition.attr(labelPath);
@@ -47,8 +49,7 @@ $(document).ready(function() {
         setButtonActions(transition);
     }
 
-    function prepareLinkOptions(linkView) {
-        var link = linkView.model;
+    function prepareLinkOptions(link) {
         var value = linkValue(link);
 
         var options = {
@@ -169,11 +170,15 @@ $(document).ready(function() {
     }
 
     function setButtonActions(element) {
-        $('#remove').click(function () {
+        $('#remove').click(function (e) {
             element.remove();
+            e.preventDefault();
         });
-        $('#clone').click(function () {
-            graph.addCell(element.clone());
+        $('#clone').click(function (e) {
+            var newEl = element.clone();
+            displayOptions(newEl);
+            graph.addCell(newEl);
+            e.preventDefault();
         });
     }
 
@@ -181,5 +186,12 @@ $(document).ready(function() {
         $('#elements-options').empty();
         $('#elements-options').append("<h4>Options</h4>");
         resimulateIfNecessary();
+    });
+
+    $('#elements-options').keydown(function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
     });
 });
