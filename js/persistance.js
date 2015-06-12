@@ -7,6 +7,11 @@ $(document).ready(function(){
         $('#save').attr('href', "data:"+data);
     });
 
+    $('#clear').click(function(){
+        graph.clear();
+        clean();
+    })
+
     addChangeListenerOnLoad();
 });
 
