@@ -142,7 +142,7 @@ $(document).ready(function(){
     }
 
 
-    function getFireableTransitions(){
+   window.getFireableTransitions = function(){
         var elements = graph.getElements();
         var fireableTransitions = {};
         for (var id in elements){

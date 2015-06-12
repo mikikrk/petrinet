@@ -12,6 +12,13 @@ $(document).ready(function(){
         clean();
     })
 
+	$('#anal').click(function(){
+		buildMatrixRepresentation();
+		var tree = buildReachabilityTree();
+		var list = createStatesList();
+		var placeLimit = placeLimitation(list);
+    })
+	
     addChangeListenerOnLoad();
 });
 
@@ -35,6 +42,7 @@ function receivedText(e) {
 
 function clean(){
     $('#elements-options').empty();
+//	$('#param').empty();
     resetLoadInput();
     buildMatrixRepresentation();
 }
