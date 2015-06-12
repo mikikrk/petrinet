@@ -31,6 +31,7 @@ function receivedText(e) {
 function clean(){
     $('#elements-options').empty();
     resetLoadInput();
+    buildMatrixRepresentation();
 }
 
 function resetLoadInput(){
