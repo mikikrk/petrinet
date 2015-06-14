@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="http://d3js.org/d3.v3.js"></script>	
+	<script src="http://cpettitt.github.io/project/graphlib-dot/v0.5.2/graphlib-dot.js"></script>
+	<script src="js/dagre.js"></script>
 
     <link rel="stylesheet" type="text/css" href="http://jointjs.com/downloads/joint.min.css" />
     <link rel="stylesheet" href="css/petri.css" />
@@ -12,6 +15,8 @@
     <script type="text/javascript" src="downloads/js/joint.shapes.pn.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="http://requirejs.org/docs/release/2.1.17/minified/require.js"></script>
+	
+	
     <title>Metody Formalne - projekt z Sieci Petriego</title>
 </head>
 <body>
@@ -31,7 +36,7 @@
         </div>
 		<div class="col-md-2 bordered" id="param">
 			<div id="limitPlace">
-                <h4>Place Limitation:</h4>
+                <h4>Place bounds:</h4>
                 <table class="param"></table>
             </div>
 		</div>
@@ -62,7 +67,11 @@
                 <table class="matrix"></table>
             </div>
         </div>
-
+		<div class="nav pull-left col-md-12" id="cover-tree">
+		</div class="nav pull-left col-md-12">
+	<svg id="t" width="1400" height="1600">
+		<g/>
+	</svg>
     </section>
 
 
@@ -74,6 +83,8 @@
 	<script src="js/matrix.js"></script>
 	<script src="js/reachability.js"></script>
 	<script src="js/parameters.js"></script>
+	<script src="js/print-tree.js"></script>	
+	
 
 </body>
 </html>

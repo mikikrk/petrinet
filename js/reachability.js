@@ -8,11 +8,17 @@ window.buildReachabilityTree = function(){
 	var id = 1;
     var states = getAllStates();
     states.status = 'new';
-    states.id = id++;
+    states.id = [id++];
+	states.parent = [];
+	states.transition = [];
     statesList.push(states);
 	while(findNewState(statesList)){
 		var firstNewStates = findFirstNewState(statesList);
 		setStates(firstNewStates);
+		if(isDuplicate(firstNewStates,statesList)){
+            firstNewStates.status = 'old';
+            continue;
+        }
 		var activeTransitions = getFireableTransitions();
 		var trl = Object.keys(activeTransitions).length;
         if(trl === 0) firstNewStates
@@ -21,14 +27,16 @@ window.buildReachabilityTree = function(){
 			playTransition(activeTransitions[activeT]);
 			var tmpStates = getAllStates();
 			if(!includeStates(tmpStates, statesList)){
-			    tmpStates.transition=activeTransitions[activeT].attr(".label/text");
+			    tmpStates.transition=activeTransitions[activeT].attr(".label/text") + ';';
                 tmpStates.status = 'new';
-                tmpStates.id = id++;
-                tmpStates.parent = firstNewStates.id;
+                tmpStates.id = [id++];
+                tmpStates.parent = firstNewStates.id[0] + ';';
 				handleAccumulation(tmpStates, filterPath(tmpStates,statesList));
                 statesList.push(tmpStates);
 			}else{
-				statesList[findSameState(tmpStates,statesList)].transition+=(";")+activeTransitions[activeT].attr(".label/text");
+				var sameState = findSameState(tmpStates,statesList);
+				statesList[sameState].transition+=activeTransitions[activeT].attr(".label/text") + ';';
+				statesList[sameState].parent += firstNewStates.id[0] + ';';
 			}
 			setStates(firstNewStates);
 		}
@@ -38,50 +46,21 @@ window.buildReachabilityTree = function(){
     return statesList;
 }	
 
-
-window.createStatesList = function(){
-	var statesList = [];
-	var id = 1;
-    var states = getAllStates();
-    states.status = 'new';
-    states.id = id++;
-    statesList.push(states);
-	while(findNewState(statesList)){
-		var firstNewStates = findFirstNewState(statesList);
-		setStates(firstNewStates);
-		var activeTransitions = getFireableTransitions();
-		var trl = Object.keys(activeTransitions).length;
-        if(trl === 0) firstNewStates
-			.status = 'end';
-		for(var activeT in activeTransitions){
-			playTransition(activeTransitions[activeT]);
-			var tmpStates = getAllStates();
-			if(!includeStates(tmpStates, statesList)){
-//			    tmpStates.transition=activeTransitions[activeT].attr(".label/text");
-                tmpStates.status = 'new';
-                tmpStates.id = id++;
-//                tmpStates.parent = firstNewStates.id;
-				handleAccumulation(tmpStates, filterPath(tmpStates,statesList));
-                statesList.push(tmpStates);
-			}else{
-//				statesList[findSameState(tmpStates,statesList)].transition+=(";")+activeTransitions[activeT].attr(".label/text");
-			}
-			setStates(firstNewStates);
+function isDuplicate(state, list){
+	for(var i = 0; i < list.length; i++){
+		if(areEqualStates(state, list[i]) && state.id != list[i].id && list[i].status != 'new'){
+			return true;
 		}
-		firstNewStates.status = 'old'
 	}
-    setStates(statesList[0]);
-    return statesList;
+    return false;
 }
-
-
 
 function filterPath(state,statesList){
     var filtered = [];
     var tmp = state;
-    while(tmp.parent!=undefined){
-        tmp = statesList[tmp.parent-1];
-        filtered.push(statesList[tmp.id-1]);
+    while(tmp.parent[0] != undefined){
+        tmp = statesList[tmp.parent[0] - 1];
+        filtered.push(statesList[tmp.id[0] - 1]);
     }
     return filtered;
 }

@@ -15,8 +15,12 @@ $(document).ready(function(){
 	$('#anal').click(function(){
 		buildMatrixRepresentation();
 		var tree = buildReachabilityTree();
-		var list = createStatesList();
-		var placeLimit = placeLimitation(list);
+		tryDraw(tree);
+		var placeBound = placeBoundedness(tree);
+		var netBound = netBoundedness(tree);
+		var netSafe = netSafeness(tree);
+		var netConserva = netConservation(tree);
+		var netNoDeadlock = netDeadlockFree(tree);
     })
 	
     addChangeListenerOnLoad();

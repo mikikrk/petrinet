@@ -75,7 +75,8 @@ $(document).ready(function(){
                     stopSimulation();
                     alert("Simulation has been ended\nThere are no ways to move token");
                 } else if (Object.keys(fireableTransitions).length === 1) {
-                    fireTransition(fireableTransitions[Object.keys(fireableTransitions)[0]]);
+                   // fireTransition(fireableTransitions[Object.keys(fireableTransitions)[0]]);
+				    chooseAndFireTransition(fireableTransitions);
                 } else {
                     chooseAndFireTransition(fireableTransitions);
                 }
