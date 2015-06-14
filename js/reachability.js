@@ -2,48 +2,47 @@
  * Created by Michał on 2015-06-11.
  */
  
-
 window.buildReachabilityTree = function(){
-	var statesList = [];
+	var allStates = [];
 	var id = 1;
     var states = getAllStates();
-    states.status = 'new';
-    states.id = [id++];
-	states.parent = "";
-	states.transition = [];
-    statesList.push(states);
-	while(findNewState(statesList)){
-		var firstNewStates = findFirstNewState(statesList);
+    states.status = 'new'; states.id = [id++]; states.parent = ""; 	states.transition = "";
+    allStates.push(states);
+	while(findNewState(allStates)){
+		var firstNewStates = findFirstNewState(allStates);
 		setStates(firstNewStates);
-		if(isDuplicate(firstNewStates,statesList)){
+		if(isDuplicate(firstNewStates,allStates)){
             firstNewStates.status = 'old';
             continue;
         }
 		var activeTransitions = getFireableTransitions();
-		var trl = Object.keys(activeTransitions).length;
-        if(trl === 0) 
+        if(Object.keys(activeTransitions).length === 0){
 			firstNewStates.status = 'end';
+		}
 		for(var activeT in activeTransitions){
 			playTransition(activeTransitions[activeT]);
-			var tmpStates = getAllStates();
-			if(!includeStates(tmpStates, statesList)){
-			    tmpStates.transition=activeTransitions[activeT].attr(".label/text") + ';';
-                tmpStates.status = 'new';
-                tmpStates.id = [id++];
-                tmpStates.parent = firstNewStates.id[0] + ';';
-				checkInf(tmpStates, filterPath(tmpStates,statesList));
-                statesList.push(tmpStates);
+			var currStates = getAllStates();
+			if(!includeStates(currStates, allStates)){
+			    currStates.transition=activeTransitions[activeT].attr(".label/text") + ';';
+                currStates.status = 'new';
+                currStates.id = [id++];
+                currStates.parent = firstNewStates.id[0] + ';';
+				var checkedStates = checkStates(currStates,allStates);
+				checkInf(currStates, checkedStates);
+                allStates.push(currStates);
 			}else{
-				var sameState = findSameState(tmpStates,statesList);
-				statesList[sameState].transition+=activeTransitions[activeT].attr(".label/text") + ';';
-				statesList[sameState].parent += firstNewStates.id[0] + ';';
+				var sameState = findSameState(currStates,allStates);
+				allStates[sameState].transition+=activeTransitions[activeT].attr(".label/text") + ';';
+				allStates[sameState].parent += firstNewStates.id[0] + ';';
 			}
 			setStates(firstNewStates);
 		}
-		firstNewStates.status = 'old'
+		if(firstNewStates.status != 'end'){
+			firstNewStates.status = 'old'
+		}
 	}
-    setStates(statesList[0]);
-    return statesList;
+    setStates(allStates[0]);
+    return allStates;
 }	
 
 function isDuplicate(state, list){
@@ -55,16 +54,15 @@ function isDuplicate(state, list){
     return false;
 }
 
-function filterPath(state,list){
-    var filtered = [];
-    var tmp = state;
+function checkStates(state,list){
+    var checked = [];
 	var counter = 0;
-    while(tmp.parent[0] != undefined && counter < list.length){
-        tmp = list[tmp.parent[0] - 1];
-        filtered.push(list[tmp.id[0] - 1]);
+    while(state.parent[0] != undefined && counter < list.length){
+        state = list[state.parent[0] - 1];
+        checked.push(list[state.id[0] - 1]);
 		counter++;
     }
-    return filtered;
+    return checked;
 }
 
 function checkInf(state,list){

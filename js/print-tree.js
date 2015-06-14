@@ -35,6 +35,8 @@ function tryDraw(tree) {
     };
 
     // Render the graph into svg g
+	$('#t').width(1400);
+	$('#t').height(1800);
     d3.select("svg#t g").call(render, g);
 }
 
@@ -58,7 +60,7 @@ function parse(tree){
 			for(var j = 0; j < parents.length - 1; j++){
 				var link = parents[j] + '->' + tree[i].id[0] + ' [label="' + transitions[j] + '"];';
 				input += link;
-				}
+			}
 		}
 	}
 	input += '}'

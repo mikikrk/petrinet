@@ -11,7 +11,9 @@ $(document).ready(function(){
         stopSimulation();
         graph.clear();
         $('.param').empty();
+		$('.matrix').empty();
         $('#t g').empty();
+		$('#t').height(100);
         clean();
     })
 
