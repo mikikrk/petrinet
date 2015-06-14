@@ -24,9 +24,7 @@ window.buildReachabilityTree = function(){
 			var currStates = getAllStates();
 			if(!includeStates(currStates, allStates)){
 			    currStates.transition=activeTransitions[activeT].attr(".label/text") + ';';
-                currStates.status = 'new';
-                currStates.id = [id++];
-                currStates.parent = firstNewStates.id[0] + ';';
+                currStates.status = 'new'; currStates.id = [id++]; currStates.parent = firstNewStates.id[0] + ';';
 				var checkedStates = checkStates(currStates,allStates);
 				checkInf(currStates, checkedStates);
                 allStates.push(currStates);
