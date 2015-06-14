@@ -9,7 +9,7 @@ window.buildReachabilityTree = function(){
     var states = getAllStates();
     states.status = 'new';
     states.id = [id++];
-	states.parent = [];
+	states.parent = "";
 	states.transition = [];
     statesList.push(states);
 	while(findNewState(statesList)){
@@ -58,9 +58,11 @@ function isDuplicate(state, list){
 function filterPath(state,statesList){
     var filtered = [];
     var tmp = state;
-    while(tmp.parent[0] != undefined){
+	var counter = 0;
+    while(tmp.parent[0] != undefined && counter < statesList.length){
         tmp = statesList[tmp.parent[0] - 1];
         filtered.push(statesList[tmp.id[0] - 1]);
+		counter++;
     }
     return filtered;
 }

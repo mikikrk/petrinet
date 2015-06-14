@@ -52,12 +52,14 @@ function parse(tree){
 		input += node;
 	}
 	for(var i = 0; i < tree.length; i++){
-		var parents = tree[i].parent.split(";");
-		var transitions = tree[i].transition.split(";");
-		for(var j = 0; j < parents.length - 1; j++){
-			var link = parents[j] + '->' + tree[i].id[0] + ' [label="' + transitions[j] + '"];';
-			input += link;
-			}
+		if(tree[i].parent.length > 0){
+			var parents = tree[i].parent.split(";");
+			var transitions = tree[i].transition.split(";");
+			for(var j = 0; j < parents.length - 1; j++){
+				var link = parents[j] + '->' + tree[i].id[0] + ' [label="' + transitions[j] + '"];';
+				input += link;
+				}
+		}
 	}
 	input += '}'
 	return input;
