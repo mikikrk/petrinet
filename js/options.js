@@ -185,7 +185,6 @@ $(document).ready(function() {
     graph.on('remove', function (cell) {
         $('#elements-options').empty();
         $('#elements-options').append("<h4>Options</h4>");
-        buildMatrixRepresentation();
         resimulateIfNecessary();
     });
 

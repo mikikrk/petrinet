@@ -20,13 +20,13 @@
     <favorites_list name="Metofy Formalne" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42708334">
+    <splitter split-orientation="horizontal" split-proportion="0.3683194">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6575875">
+                <state vertical-scroll-proportion="0.46556473">
                   <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
                   <folding />
                 </state>
@@ -65,7 +65,7 @@
             <entry file="file://$PROJECT_DIR$/js/simulation.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="305" column="12" selection-start-line="305" selection-start-column="12" selection-end-line="305" selection-end-column="12" />
+                  <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -84,8 +84,8 @@
           <file leaf-file-name="persistance.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/persistance.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3462963">
-                  <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+                <state vertical-scroll-proportion="0.22606383">
+                  <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -129,9 +129,9 @@
             <entry file="file://$PROJECT_DIR$/js/options.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="193" column="31" selection-start-line="193" selection-start-column="31" selection-end-line="193" selection-end-column="31" />
+                  <caret line="186" column="25" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
                   <folding>
-                    <marker date="1434094192229" expanded="true" signature="3974:3988" placeholder="..." />
+                    <marker date="1434311268652" expanded="true" signature="3974:3988" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -172,13 +172,13 @@
         <option value="$PROJECT_DIR$/js/commons.js" />
         <option value="$PROJECT_DIR$/downloads/js/joint.shapes.pn.js" />
         <option value="$PROJECT_DIR$/js/matrix.js" />
-        <option value="$PROJECT_DIR$/js/simulation.js" />
         <option value="$PROJECT_DIR$/js/avaliability.js" />
         <option value="$PROJECT_DIR$/js/init.js" />
         <option value="$PROJECT_DIR$/css/petri.css" />
-        <option value="$PROJECT_DIR$/js/options.js" />
         <option value="$PROJECT_DIR$/js/crud.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/options.js" />
+        <option value="$PROJECT_DIR$/js/simulation.js" />
         <option value="$PROJECT_DIR$/js/persistance.js" />
       </list>
     </option>
@@ -414,7 +414,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35034013" sideWeight="0.4525627" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35034013" sideWeight="0.5474373" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10997733" sideWeight="0.5474373" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -515,7 +515,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="147" column="28" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="28" />
           <folding>
-            <marker date="1434094192229" expanded="true" signature="3974:3988" placeholder="..." />
+            <marker date="1434311268652" expanded="true" signature="3974:3988" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -541,7 +541,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
           <folding>
-            <marker date="1434094192229" expanded="true" signature="3974:3988" placeholder="..." />
+            <marker date="1434311268652" expanded="true" signature="3974:3988" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -595,7 +595,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1434094192229" expanded="true" signature="3974:3988" placeholder="..." />
+            <marker date="1434311268652" expanded="true" signature="3974:3988" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -659,7 +659,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
           <folding>
-            <marker date="1434094192229" expanded="true" signature="3974:3988" placeholder="..." />
+            <marker date="1434311268652" expanded="true" signature="3974:3988" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -853,14 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/simulation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="305" column="12" selection-start-line="305" selection-start-column="12" selection-end-line="305" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/matrix.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -869,21 +861,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/options.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="193" column="31" selection-start-line="193" selection-start-column="31" selection-end-line="193" selection-end-column="31" />
-          <folding>
-            <marker date="1434094192229" expanded="true" signature="3974:3988" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.46556473">
+          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/parameters.js">
+    <entry file="file://$PROJECT_DIR$/js/options.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="186" column="25" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
+          <folding>
+            <marker date="1434311268652" expanded="true" signature="3974:3988" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -897,18 +889,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/simulation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6575875">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/parameters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/persistance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3462963">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.22606383">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding />
         </state>
       </provider>

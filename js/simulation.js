@@ -42,7 +42,7 @@ $(document).ready(function(){
         simulate();
     }
 
-    function stopSimulation(){
+    window.stopSimulation = function(){
         changeButtonsAfterStopSimulation();
         simulationStopped = true;
     }

@@ -8,6 +8,7 @@ $(document).ready(function(){
     });
 
     $('#clear').click(function(){
+        stopSimulation();
         graph.clear();
         $('.param').empty();
         $('#t g').empty();
