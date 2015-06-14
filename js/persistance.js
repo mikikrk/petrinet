@@ -9,6 +9,8 @@ $(document).ready(function(){
 
     $('#clear').click(function(){
         graph.clear();
+        $('.param').empty();
+        $('#t g').empty();
         clean();
     })
 
@@ -48,7 +50,6 @@ function clean(){
     $('#elements-options').empty();
 //	$('#param').empty();
     resetLoadInput();
-    buildMatrixRepresentation();
 }
 
 function resetLoadInput(){
