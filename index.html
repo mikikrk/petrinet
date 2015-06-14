@@ -36,8 +36,20 @@
         </div>
 		<div class="col-md-2 bordered" id="param">
 			<div id="limitPlace">
-                <h4>Place bounds:</h4>
+                <h4 class="param">Place boundedness:</h4>
                 <table class="param"></table>
+            </div>
+			<div id="limitNet">
+                <h4 class="param" >Net bound:</h4>
+            </div>
+			<div id="netSafe">
+                <h4 class="param" >Net safe:</h4>
+            </div>
+			<div id="netC">
+                <h4 class="param" >Net conservative:</h4>
+            </div>
+			<div id="netDLFree">
+                <h4 class="param" >Net dead lock free:</h4>
             </div>
 		</div>
         <div class="nav pull-left col-md-8" id="paper-creator">
@@ -69,8 +81,8 @@
         </div>
 		<div class="nav pull-left col-md-12" id="cover-tree">
         <h3>Cover graph</h3>
-	<svg id="t" width="1400" height="1600">
-		<g/>
+		<svg id="t" width="1400" height="1800">
+			<g/>
 	    </svg>
         </div>
     </section>
@@ -83,7 +95,11 @@
     <script src="js/persistance.js"></script>
 	<script src="js/matrix.js"></script>
 	<script src="js/reachability.js"></script>
-	<script src="js/parameters.js"></script>
+	<script src="js/placeBoundedness.js"></script>
+	<script src="js/netBoundedness.js"></script>
+	<script src="js/netSafeness.js"></script>
+	<script src="js/netConservation.js"></script>
+	<script src="js/netDeadLockFree.js"></script>
 	<script src="js/print-tree.js"></script>	
 	
 

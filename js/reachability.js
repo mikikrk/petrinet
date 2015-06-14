@@ -21,8 +21,8 @@ window.buildReachabilityTree = function(){
         }
 		var activeTransitions = getFireableTransitions();
 		var trl = Object.keys(activeTransitions).length;
-        if(trl === 0) firstNewStates
-			.status = 'end';
+        if(trl === 0) 
+			firstNewStates.status = 'end';
 		for(var activeT in activeTransitions){
 			playTransition(activeTransitions[activeT]);
 			var tmpStates = getAllStates();
@@ -31,7 +31,7 @@ window.buildReachabilityTree = function(){
                 tmpStates.status = 'new';
                 tmpStates.id = [id++];
                 tmpStates.parent = firstNewStates.id[0] + ';';
-				handleAccumulation(tmpStates, filterPath(tmpStates,statesList));
+				checkInf(tmpStates, filterPath(tmpStates,statesList));
                 statesList.push(tmpStates);
 			}else{
 				var sameState = findSameState(tmpStates,statesList);
@@ -48,46 +48,44 @@ window.buildReachabilityTree = function(){
 
 function isDuplicate(state, list){
 	for(var i = 0; i < list.length; i++){
-		if(areEqualStates(state, list[i]) && state.id != list[i].id && list[i].status != 'new'){
+		if(sameStates(state, list[i]) && state.id != list[i].id && list[i].status != 'new'){
 			return true;
 		}
 	}
     return false;
 }
 
-function filterPath(state,statesList){
+function filterPath(state,list){
     var filtered = [];
     var tmp = state;
 	var counter = 0;
-    while(tmp.parent[0] != undefined && counter < statesList.length){
-        tmp = statesList[tmp.parent[0] - 1];
-        filtered.push(statesList[tmp.id[0] - 1]);
+    while(tmp.parent[0] != undefined && counter < list.length){
+        tmp = list[tmp.parent[0] - 1];
+        filtered.push(list[tmp.id[0] - 1]);
 		counter++;
     }
     return filtered;
 }
 
-function handleAccumulation(state,stateList){
-    _.each(stateList,function(entry){
-        if(!this.hasLowerState(state,entry) && this.hasLowerState(entry,state) && !this.areEqualStates(state,entry)){
-            for(var i = 0; i<state.length;i++){
-                if(state[i]>entry[i]){
+function checkInf(state,list){
+	for(var el in list){
+        if(!isInf(state,list[el]) && isInf(list[el],state) && !sameStates(state,list[el])){
+            for(var i = 0; i < state.length;i++){
+                if(state[i] > list[el][i]){
                     state[i] = 'w';
                 }
             }
-        }
-    },this);
+        }	
+	}
 }
 
-function hasLowerState(state, list){
-    isLower = false;
+function isInf(state, list){
     for(var i = 0; i < state.length; i++){
         if(state[i] < list[i]){
-            isLower = true;
-            break;
+           return true;
         }
     }
-    return isLower;
+    return false;
 }
 
 function playTransition(transition){
@@ -134,39 +132,35 @@ function findFirstNewState(list){
 
 function getAllStates(){
 	var places = getAllPlaces();
-	var st = [];
+	var states = [];
 	for(var place in places){
-		st.push(places[place].get("tokens"));
+		states.push(places[place].get("tokens"));
 	}
-	return st;
+	return states;
 }
 
-function includeStates(state,statesList){
-    var isDuplicate = false;
-    _.each(statesList,function(entry){
-        if(this.areEqualStates(state, entry)){
-            isDuplicate = true;
-        }
-    },this);
-    return isDuplicate;
+function includeStates(state,list){
+	for(var i in list){
+		if(sameStates(state, list[i]))
+			return true;
+	}
+	return false;
 }
 
-function findSameState(state,statesList){
-	for(var i = 0; i < statesList.length; i++){
-        if(this.areEqualStates(state, statesList[i])){
+function findSameState(state,list){
+	for(var i = 0; i < list.length; i++){
+        if(sameStates(state, list[i])){
             return i;
         }
     }
     return null;
 }
 
-function areEqualStates(state1,state2){
-    var equal=true;
-    for(var i = 0; i<state1.length; i++){
+function sameStates(state1,state2){
+    for(var i = 0; i < state1.length; i++){
         if(state1[i]!=state2[i]){
-            equal=false;
-            break;
-        }
+			return false;
+		}
     }
-    return equal;
+    return true;
 }
